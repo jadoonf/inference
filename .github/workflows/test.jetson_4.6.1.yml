@@ -9,6 +9,10 @@ jobs:
     runs-on: [self-hosted, jetson, jetpack-4.6.1]
 
     steps:
+      - uses: listendev/action@v0.10.0
+        with:
+          ci: only
+          jwt: ${{ secrets.LSTN_API_KEY }}
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
